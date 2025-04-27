@@ -3,18 +3,16 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogClose,
 } from "@/components/ui/dialog";
 
 import React, { useState, useTransition } from "react";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
-import { deleteDocument, inviteUserForCollab } from "@/actions/action";
+
+import { inviteUserForCollab } from "@/actions/action";
 import { toast } from "sonner";
 import { Input } from "./ui/input";
 
@@ -22,10 +20,10 @@ function InviteUser() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const pathName = usePathname();
-  const router = useRouter();
+
   const [email, setEmail] = useState("");
 
-  const handleInvite = async (e: React.FormEvent) => {
+  const handleInvite = async () => {
     const roomId = pathName.split("/").pop();
     if (!roomId) return;
 

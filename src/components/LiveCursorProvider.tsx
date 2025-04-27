@@ -5,7 +5,7 @@ import { PointerEvent } from "react";
 import FollowPointer from "./FollowPointer";
 
 function LiveCursorProvider({ children }: { children: React.ReactNode }) {
-  const [myPresence, updateMyPresence] = useMyPresence();
+  const [, updateMyPresence] = useMyPresence();
 
   const others = useOthers();
 
@@ -28,8 +28,8 @@ function LiveCursorProvider({ children }: { children: React.ReactNode }) {
           <FollowPointer
             key={connectionId}
             info={info}
-            x={presence.cursor.x}
-            y={presence.cursor.y}
+            x={presence?.cursor.x}
+            y={presence?.cursor.y}
           />
         ))}
 

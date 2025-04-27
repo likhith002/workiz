@@ -14,7 +14,7 @@ import Avatars from "./Avatars";
 
 function Document({ id }: { id: string }) {
   const [input, setInput] = useState<string>("");
-  const [data, loading, error] = useDocumentData(doc(db, "documents", id));
+  const [data] = useDocumentData(doc(db, "documents", id));
   const [isPending, startTransition] = useTransition();
   const isOwner = useOwner();
   useEffect(() => {
